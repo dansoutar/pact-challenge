@@ -13,15 +13,12 @@ const images = [img1, img2, img3, img4];
 const swiperBreakpoints = {
   500: {
     slidesPerView: 1.75,
-    spaceBetween: 20,
   },
   800: {
     slidesPerView: 2.25,
-    spaceBetween: 20,
   },
   1200: {
     slidesPerView: 3.65,
-    spaceBetween: 20,
   },
 };
 

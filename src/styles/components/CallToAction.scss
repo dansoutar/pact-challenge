@@ -44,4 +44,5 @@
 
 .call-to-action__cta-button {
   @include cta-button;
+  display: inline-block;
 }

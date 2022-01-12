@@ -17,7 +17,7 @@
   font-weight: bold;
   text-transform: uppercase;
 
-  transition: transform 0.2s ease-out;
+  transition: transform 0.2s linear;
   transform: translate(-50%, -50%) scale(0);
 
   span {
