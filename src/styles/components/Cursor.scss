@@ -1,15 +1,27 @@
-#cursor {
-  width: 110px;
-  height: 110px;
+.slider__wrapper {
+  cursor: none;
+}
 
+#cursor {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9999;
 
-  display: grid;
-  place-items: center;
+  pointer-events: none;
 
+  z-index: 1000;
+  transform: translate3d(-50%, -50%, 0)
+    translate3d(var(--mouse-x), var(--mouse-y), 0);
+}
+
+.slider__wrapper:hover #cursor {
+  transform: translate3d(-50%, -50%, 0)
+    translate3d(var(--mouse-x), var(--mouse-y), 0);
+}
+
+#cursor .cursor__inner {
+  width: 110px;
+  height: 110px;
   background-color: $true-white;
   color: $black;
   border-radius: 100%;
@@ -17,18 +29,16 @@
   font-weight: bold;
   text-transform: uppercase;
 
-  transition: transform 0.2s linear;
-  transform: translate(-50%, -50%) scale(0);
+  display: grid;
+  place-items: center;
 
+  transition: transform 0.3s ease-out;
+  transform: scale(0);
   span {
     padding-top: 8px;
   }
 }
 
-#cursor {
-  pointer-events: none;
-}
-
-.slider__wrapper:hover #cursor {
-  transform: translate(-50%, -50%) scale(1);
+.slider__wrapper:hover #cursor .cursor__inner {
+  transform: scale(1);
 }

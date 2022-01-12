@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 
 export default function Cursor() {
   useEffect(() => {
-    const cursor = document.querySelector('#cursor');
+    const root = document.documentElement;
 
     const setCursorPosition = ({ pageX, pageY }) => {
-      cursor.style.top = `${pageY}px`;
-      cursor.style.left = `${pageX}px`;
+      root.style.setProperty('--mouse-x', `${pageX}px`);
+      root.style.setProperty('--mouse-y', `${pageY}px`);
     };
 
     document.addEventListener('pointermove', setCursorPosition);
@@ -18,7 +18,9 @@ export default function Cursor() {
 
   return (
     <div id='cursor'>
-      <span>Drag</span>
+      <div className='cursor__inner'>
+        <span>Drag</span>
+      </div>
     </div>
   );
 }
