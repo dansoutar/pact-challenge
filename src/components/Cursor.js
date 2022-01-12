@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 
+import touchDevice from '../lib/utils/checkForTouchDevice';
+
 export default function Cursor() {
   useEffect(() => {
-    const root = document.documentElement;
+    if (touchDevice()) return;
 
+    const root = document.documentElement;
     const setCursorPosition = ({ pageX, pageY }) => {
       root.style.setProperty('--mouse-x', `${pageX}px`);
       root.style.setProperty('--mouse-y', `${pageY}px`);
