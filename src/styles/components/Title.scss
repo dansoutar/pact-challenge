@@ -1,0 +1,27 @@
+.main-header__heading {
+  margin-top: 8vh;
+  font-size: $font-size--main-heading;
+  font-weight: $font-weight--black;
+  color: $grey;
+  text-transform: uppercase;
+
+  @media (max-width: $tablet) {
+    font-size: 5.5rem;
+    margin-top: 4vh;
+  }
+  @media (max-width: $phone) {
+    font-size: 4rem;
+  }
+}
+
+.main-header__heading span {
+  display: block;
+}
+
+.main-header__heading span.offset-right {
+  text-align: right;
+
+  @media (max-width: $desktop) {
+    text-align: left;
+  }
+}

@@ -1,0 +1,47 @@
+.call-to-action {
+  width: 94%;
+  padding: 10% 4%;
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: 6fr 4fr;
+  background-color: $aqua;
+  border-radius: 10px;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.call-to-action__cta-title {
+  width: 90%;
+  max-width: 800px;
+
+  font-size: $font-size--main-heading;
+  font-weight: $font-weight--black;
+  color: $black;
+
+  @media (max-width: $tablet) {
+    width: unset;
+    font-size: 6rem;
+  }
+  @media (max-width: $phone) {
+    font-size: 4rem;
+  }
+}
+
+.call-to-action__copy {
+  width: 90%;
+  max-width: 600px;
+
+  margin-bottom: 5rem;
+  font-size: 2rem;
+  line-height: 1.5;
+
+  @media (max-width: $phone) {
+    width: unset;
+  }
+}
+
+.call-to-action__cta-button {
+  @include cta-button;
+}
