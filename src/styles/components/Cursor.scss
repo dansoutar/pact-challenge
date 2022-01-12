@@ -29,9 +29,6 @@
   pointer-events: none;
 }
 
-.slider__wrapper:hover {
-  //   cursor: none;
-}
 .slider__wrapper:hover #cursor {
   transform: translate(-50%, -50%) scale(1);
 }
