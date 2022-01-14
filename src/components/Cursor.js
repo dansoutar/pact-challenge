@@ -20,7 +20,7 @@ const Cursor = () => {
       document.removeEventListener('pointermove', mouseMoveEvent);
       cancelAnimationFrame(requestRef.current);
     };
-  }, []);
+  });
 
   const mouseMoveEvent = (e) => {
     endX.current = e.pageX;

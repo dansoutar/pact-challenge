@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 
 import { img1, img2, img3, img4 } from '../assets/images/index';
 import CategoryCard from './CategoryCard';
