@@ -50,7 +50,7 @@
   cursor: none;
 }
 
-.cursor-dot-outline {
+.drag-cursor {
   --size: 110px;
   width: var(--size);
   height: var(--size);
@@ -78,7 +78,7 @@
   }
 }
 
-.slider__wrapper:hover .cursor-dot-outline {
+.slider__wrapper:hover .drag-cursor {
   opacity: 1;
   transform: scale(1) translate3d(-50%, -50%, 0);
 }
