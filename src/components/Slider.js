@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { img1, img2, img3, img4 } from '../assets/images/index';
 import CategoryCard from './CategoryCard';
@@ -23,10 +23,42 @@ const swiperBreakpoints = {
 };
 
 export default function Slider() {
+  const latestStories = useRef(null);
+
+  const keyframes = [
+    { transform: 'translateY(0)', opacity: 1 },
+    { transform: 'translateY(-150%)', opacity: 0 },
+    { transform: 'translateY(150%)', opacity: 0 },
+    { transform: 'translateY(0)', opacity: 1 },
+  ];
+
+  const settings = {
+    duration: 500,
+    fill: 'both',
+    easing: 'ease-in-out',
+  };
+
+  const latestStoriesAnimation = () => {
+    latestStories.current.children &&
+      [...latestStories.current.children].forEach((child) => {
+        const idx = child.style.getPropertyValue('--index');
+
+        child.animate(keyframes, { ...settings, delay: idx * 20 });
+      });
+  };
+
   return (
     <div className='slider'>
       <div className='slider__latest-stories-sidebar'>
-        <h3>Latest Stories</h3>
+        <h3>
+          <span
+            split-by='letter'
+            letter-animation='fade-up'
+            ref={latestStories}
+          >
+            Latest Stories
+          </span>
+        </h3>
       </div>
       <div className='slider__wrapper'>
         <Cursor />
@@ -34,6 +66,9 @@ export default function Slider() {
           modules={[FreeMode]}
           slidesPerView={1}
           breakpoints={swiperBreakpoints}
+          onSliderFirstMove={() => {
+            latestStoriesAnimation();
+          }}
         >
           {images &&
             images.map((imgSrc, index) => (

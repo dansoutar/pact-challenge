@@ -6,7 +6,13 @@
   grid-column: 1 / -1;
 }
 
+@mixin grid-centered {
+  display: grid;
+  place-items: center;
+}
+
 @mixin cta-button {
+  @include grid-centered;
   padding: 1.5rem 3rem 1.3rem 3rem;
   border: 1px solid $black;
   border-radius: 100px;
@@ -16,9 +22,5 @@
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  &:hover {
-    background-color: $black;
-    color: $aqua;
-  }
+  transition: color 0.2s ease-in-out;
 }

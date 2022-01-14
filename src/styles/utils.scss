@@ -1,0 +1,8 @@
+.reveal-wrapper {
+  display: block;
+  overflow: hidden;
+
+  & > * {
+    display: block;
+  }
+}

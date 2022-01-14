@@ -1,46 +1,84 @@
+// #cursor {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+
+//   pointer-events: none;
+//   z-index: 1000;
+
+//   will-change: transform;
+//   transform: translate3d(-50%, -50%, 0)
+//     translate3d(var(--mouse-x), var(--mouse-y), 0);
+// }
+
+// .slider__wrapper:hover #cursor {
+//   transform: translate3d(-50%, -50%, 0)
+//     translate3d(var(--mouse-x), var(--mouse-y), 0);
+// }
+
+// #cursor .cursor__inner {
+//   width: 110px;
+//   height: 110px;
+
+//   display: grid;
+//   place-items: center;
+
+//   background-color: $true-white;
+//   color: $black;
+//   border-radius: 100%;
+//   font-size: 1.6rem;
+//   font-weight: bold;
+//   text-transform: uppercase;
+
+//   transition: transform 0.2s ease-out;
+//   transition-delay: 0.1s;
+//   transform: scale(0);
+//   span {
+//     padding-top: 8px;
+//   }
+// }
+
+// .slider__wrapper:hover #cursor .cursor__inner {
+//   transform: scale(1);
+// }
+
+// * {
+//   cursor: none;
+// }
+
 .slider__wrapper {
   cursor: none;
 }
 
-#cursor {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  pointer-events: none;
-  z-index: 1000;
-
-  transform: translate3d(-50%, -50%, 0)
-    translate3d(var(--mouse-x), var(--mouse-y), 0);
-}
-
-.slider__wrapper:hover #cursor {
-  transform: translate3d(-50%, -50%, 0)
-    translate3d(var(--mouse-x), var(--mouse-y), 0);
-}
-
-#cursor .cursor__inner {
-  width: 110px;
-  height: 110px;
+.cursor-dot-outline {
+  --size: 110px;
+  width: var(--size);
+  height: var(--size);
+  background-color: $true-white;
 
   display: grid;
   place-items: center;
 
-  background-color: $true-white;
-  color: $black;
-  border-radius: 100%;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0) translate3d(-50%, -50%, 0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out, transform 0.25s ease-in-out;
 
-  transition: transform 0.2s ease-out;
-  transition-delay: 0.1s;
-  transform: scale(0);
-  span {
+  z-index: 999;
+
+  > span {
     padding-top: 8px;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: bold;
   }
 }
 
-.slider__wrapper:hover #cursor .cursor__inner {
-  transform: scale(1);
+.slider__wrapper:hover .cursor-dot-outline {
+  opacity: 1;
+  transform: scale(1) translate3d(-50%, -50%, 0);
 }

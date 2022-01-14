@@ -1,13 +1,19 @@
 // External Imports
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;900&display=swap');
 
-// General
+// Utils
 @import './variables';
+@import './utils';
 @import './mixins.scss';
-@import './app.scss';
 
 // Components
-@import './components/Title';
+@import './components/MainTitle';
 @import './components/CallToAction';
 @import './components/Slider';
 @import './components/Cursor';
+
+// Animations
+@import './animations/animations';
+
+// App
+@import './app.scss';

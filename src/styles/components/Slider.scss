@@ -28,15 +28,20 @@
   h3 {
     transform: translate(-40%, -50%) rotate(-90deg);
     color: $white;
+    overflow: hidden;
 
     @media (max-width: $tablet) {
       transform: translate(0) rotate(0);
+    }
+
+    span {
+      display: inline-block;
     }
   }
 }
 
 .slider__wrapper {
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .swiper-wrapper {

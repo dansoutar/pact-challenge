@@ -1,0 +1,60 @@
+@media (min-width: $desktop) {
+  // Variables
+  [letter-animation='fade-up'] {
+    --letter-delay: 0.025s;
+    --line-delay: 0.06s;
+
+    --animation-length: 0.6s;
+    --animation-length-2: 1s;
+  }
+
+  // Staggered Lines of text
+  .reveal-wrapper > * {
+    --staggered-line-delay: calc(var(--child-index) * var(--line-delay));
+
+    transform: translateY(140%);
+    will-change: transform;
+
+    animation: fade-up var(--line-delay) cubic-bezier(0.2, 0.6, 0.5, 1);
+    animation-fill-mode: forwards;
+    animation-delay: var(--staggered-line-delay);
+  }
+
+  .reveal-wrapper:nth-of-type(1) > * {
+    --child-index: 1;
+  }
+  .reveal-wrapper:nth-of-type(2) > * {
+    --child-index: 2;
+  }
+  .reveal-wrapper:nth-of-type(3) > * {
+    --child-index: 3;
+  }
+  .reveal-wrapper:nth-of-type(4) > * {
+    --child-index: 4;
+  }
+  .reveal-wrapper:nth-of-type(5) > * {
+    --child-index: 5;
+  }
+
+  // Staggered Spans
+  [letter-animation='fade-up'] > span {
+    --indexed-letter-delay: calc(var(--index) * var(--letter-delay));
+
+    display: inline-block;
+    white-space: break-spaces;
+
+    transform: translateY(140%);
+    will-change: transform;
+
+    animation: fade-up var(--animation-length) cubic-bezier(0.2, 0.6, 0.5, 1);
+    animation-fill-mode: forwards;
+    animation-delay: calc(
+      var(--indexed-letter-delay) + var(--staggered-line-delay)
+    );
+  }
+  @keyframes fade-up {
+    to {
+      transform: translateY(0);
+    }
+  }
+}
