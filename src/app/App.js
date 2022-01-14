@@ -7,19 +7,22 @@ import Slider from '../components/Slider';
 import { splitByLetter, splitByWord } from '../lib/splitText';
 
 function App() {
+  // Split animation elements
   useEffect(() => {
     const splitTargets = document.querySelectorAll('[split-by]');
 
     splitTargets.forEach((splitTarget) => {
-      const type = splitTarget.getAttribute('split-by');
       let splitElements = null;
 
-      if (type === 'letter')
-        splitElements = splitByLetter(splitTarget.innerText);
-      else if (type === 'word')
-        splitElements = splitByWord(splitTarget.innerText);
+      const type = splitTarget.getAttribute('split-by');
 
-      if (splitElements) splitTarget.firstChild.replaceWith(...splitElements);
+      if (type === 'letter') {
+        splitElements = splitByLetter(splitTarget.innerText);
+      } else if (type === 'word') {
+        splitElements = splitByWord(splitTarget.innerText);
+      }
+
+      splitElements && splitTarget.firstChild.replaceWith(...splitElements);
     });
   }, []);
 

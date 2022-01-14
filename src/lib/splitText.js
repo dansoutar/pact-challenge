@@ -1,6 +1,5 @@
 const wrapInSpan = (text, index) => {
   const spanEl = document.createElement('span');
-
   spanEl.textContent = text;
   spanEl.style.setProperty('--index', index);
 

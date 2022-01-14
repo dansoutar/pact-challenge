@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 
-import { img1, img2, img3, img4 } from '../assets/images/index';
 import CategoryCard from './CategoryCard';
 import Cursor from '../components/Cursor';
 
-// Swiper
+// Swiper setup
+import 'swiper/css';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { img1, img2, img3, img4 } from '../assets/images/index';
 
 const images = [img1, img2, img3, img4];
 const swiperBreakpoints = {
@@ -23,21 +23,21 @@ const swiperBreakpoints = {
 };
 
 export default function Slider() {
+  // Web Animations API animation setup
   const latestStories = useRef(null);
-
   const keyframes = [
     { transform: 'translateY(0)', opacity: 1 },
     { transform: 'translateY(-150%)', opacity: 0 },
     { transform: 'translateY(150%)', opacity: 0 },
     { transform: 'translateY(0)', opacity: 1 },
   ];
-
   const settings = {
     duration: 500,
     fill: 'both',
     easing: 'ease-in-out',
   };
 
+  // Animate split elements
   const latestStoriesAnimation = () => {
     latestStories.current.children &&
       [...latestStories.current.children].forEach((child) => {
@@ -67,6 +67,7 @@ export default function Slider() {
           slidesPerView={1}
           breakpoints={swiperBreakpoints}
           onSliderFirstMove={() => {
+            // Animate when slider moves
             latestStoriesAnimation();
           }}
         >
