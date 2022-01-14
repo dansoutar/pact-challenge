@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 const Cursor = () => {
   const delay = 4;
 
-  const dotOutline = useRef(null);
+  const dragCursor = useRef(null);
 
   const endX = useRef(window.innerWidth / 2);
   const endY = useRef(window.innerHeight / 2);
@@ -14,7 +14,7 @@ const Cursor = () => {
 
   useEffect(() => {
     document.addEventListener('pointermove', mouseMoveEvent);
-    animateDotOutline();
+    animateDragCursor();
 
     return () => {
       document.removeEventListener('pointermove', mouseMoveEvent);
@@ -26,23 +26,23 @@ const Cursor = () => {
     endX.current = e.pageX;
     endY.current = e.pageY;
 
-    dotOutline.current.style.top = endY.current + 'px';
-    dotOutline.current.style.left = endX.current + 'px';
+    dragCursor.current.style.top = endY.current + 'px';
+    dragCursor.current.style.left = endX.current + 'px';
   };
 
-  const animateDotOutline = () => {
+  const animateDragCursor = () => {
     x.current += (endX.current - x.current) / delay;
     y.current += (endY.current - y.current) / delay;
 
-    dotOutline.current.style.top = y.current + 'px';
-    dotOutline.current.style.left = x.current + 'px';
+    dragCursor.current.style.top = y.current + 'px';
+    dragCursor.current.style.left = x.current + 'px';
 
-    requestRef.current = requestAnimationFrame(animateDotOutline);
+    requestRef.current = requestAnimationFrame(animateDragCursor);
   };
 
   return (
     <>
-      <div ref={dotOutline} className='cursor-dot-outline'>
+      <div ref={dragCursor} className='drag-cursor'>
         <span>Drag</span>
       </div>
     </>
