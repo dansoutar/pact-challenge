@@ -1,4 +1,4 @@
-# Pact Dev Test
+# Pact Challenge
 
 My submission for the Pact Development Challenge 💻 🤓
 
